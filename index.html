@@ -26,8 +26,9 @@ body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 Inter,-app
 main{max-width:640px;margin:0 auto;padding:40px 24px 56px;display:flex;flex-direction:column;gap:44px}
 header{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
 /* The logo is pixel art exported at 6x; the browser scales it down, so it stays crisp at any width. */
-h1{margin:0;line-height:0}
+h1{margin:0;line-height:0;width:100%;display:flex;justify-content:center}
 h1 img{width:min(440px,100%);height:auto}
+#logo{display:block;width:min(440px,100%);aspect-ratio:172/62;image-rendering:pixelated;image-rendering:crisp-edges}
 .tag{margin:0;color:var(--soft);text-wrap:balance}
 h2{font:600 13px/1 Inter,system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--soft);margin:0 0 12px}
 .app{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;color:inherit;text-decoration:none}
@@ -45,7 +46,7 @@ footer p{margin:0}
 <body>
 <main>
 <header>
-<h1><picture><source srcset="logo-dark.png" media="(prefers-color-scheme: dark)"><img src="logo-light.png" width="1044" height="384" alt="Pip &amp; Merry Studios"></picture></h1>
+<h1><canvas id="logo" role="img" aria-label="Pip &amp; Merry Studios"></canvas><noscript><picture><source srcset="logo-dark.png" media="(prefers-color-scheme: dark)"><img src="logo-light.png" width="1044" height="384" alt="Pip &amp; Merry Studios"></picture></noscript></h1>
 <p class="tag">One person. Two cats. Good apps.</p>
 </header>
 
@@ -63,5 +64,6 @@ footer p{margin:0}
 <p>© 2026 Pip &amp; Merry Studios</p>
 </footer>
 </main>
+<script src="logo.js" defer></script>
 </body>
 </html>
